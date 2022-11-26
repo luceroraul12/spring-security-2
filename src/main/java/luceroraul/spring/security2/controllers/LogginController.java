@@ -25,8 +25,8 @@ public class LogginController {
         ResponseEntity<String> response =  null;
         try{
             //hash encrypt password
-            String hashPsw = passwordEncoder.encode(customer.getPsw());
-            customer.setPsw(hashPsw);
+            String hashPsw = passwordEncoder.encode(customer.getPwd());
+            customer.setPwd(hashPsw);
 
             Customer userCreated = repository.save(customer);
 

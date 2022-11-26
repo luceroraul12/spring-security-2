@@ -1,6 +1,7 @@
 package luceroraul.spring.security2.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "email")
-    private String email;
 
-    @Column(name = "pwd")
-    private String psw;
-    @Column(name = "role")
+    private String email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String pwd;
+
     private String role;
 
     @JsonIgnore

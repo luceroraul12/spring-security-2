@@ -16,7 +16,8 @@ public class SecurityConfig {
                 .and().csrf().disable()
                 .csrf().ignoringRequestMatchers("/register","/notice").csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and().authorizeHttpRequests()
-                    .requestMatchers("/cards").authenticated()
+//                    .requestMatchers("/cards").authenticated()
+                    .requestMatchers("/cards").hasRole("ADMIN")
                     .requestMatchers("/register","/notice").permitAll()
                 .and().formLogin()
                 .and().httpBasic();
